@@ -1,0 +1,40 @@
+---
+title: "Plotting Term Grids"
+author: "Daniel Greene"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Plotting Term Grids}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\usepackage[utf8]{inputenc}
+---
+```{r echo=FALSE}
+knitr::opts_chunk$set(dev="svg", fig.width=7, fig.height=5, dev="svg", fig.align="center")
+```
+
+In addition to using acyclic graphs, `ontologyPlot` lets you to visualise ontological annotation as grids. In order to do this for a given a `list` of term sets (i.e. your annotation), one calls the function `plot_annotation_grid`, passing parameters:
+
+* `ontology`, i.e. an `ontology_index`, 
+* `term_sets`, the annotation list,
+* `all_terms`, a character vector of term IDs indicating which terms to include in the plot. This defaults to those terms which show only the most informative common ancestors for all subsets of annotated objects (otherwise there can be an ungainly number of columns).
+
+We proceed by loading the package, and an example ontology - in our case, the Gene Ontology (GO).  We then create a `list` containing our annotation - here we use a list of 6 genes with the actual annotation downloaded from http://geneontology.org/ - and subsequently pass it to `plotannotation_grid`. 
+
+```{r fig.width=6.15, fig.height=5.67}
+library(ontologyIndex)
+library(ontologyPlot)
+data(go)
+
+genes <- list(
+	A0A087WUJ7=c("GO:0004553", "GO:0005975"),
+	CTAGE8=c("GO:0016021"),
+	IFRD2=c("GO:0003674", "GO:0005515", "GO:0005634"),
+	OTOR=c("GO:0001502", "GO:0005576", "GO:0007605"),
+	TAMM41=c("GO:0004605", "GO:0016024", "GO:0031314", "GO:0032049"),
+	ZZEF1=c("GO:0005509", "GO:0008270")
+)
+
+plot_annotation_grid(go, term_sets=genes)
+```
+
+One can either use `annotation_grid` to get a `logical` matrix of term-inclusion, or plot directly using `plot_annotation_grid`. See `?annotation_grid` and `?plot_annotation_grid` for more details.

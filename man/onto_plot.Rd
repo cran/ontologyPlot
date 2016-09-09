@@ -2,15 +2,14 @@
 % Please edit documentation in R/graphs.R
 \name{onto_plot}
 \alias{onto_plot}
-\title{Get ontology_plot object}
+\title{Get \code{ontology_plot} object}
 \usage{
 onto_plot(ontology, term_sets = NULL, frequencies = NULL,
-  terms = remove_uninformative_terms(ontology, lapply(term_sets,
-  get_ancestors, ontology = ontology)), edge_attributes = list(color =
-  "#000000", lty = "solid"), fillcolor = "powderblue",
-  label = simple_labels, color = "transparent", width = 0.75,
-  fontsize = 15, style = "filled", fixedsize = "true", shape = "circle",
-  ...)
+  terms = remove_uninformative_terms(ontology, term_sets),
+  edge_attributes = list(color = "#000000", lty = "solid"),
+  fillcolor = "powderblue", label = simple_labels, color = "transparent",
+  width = 0.75, fontsize = 30, style = "filled", fixedsize = "true",
+  shape = "circle", ...)
 }
 \arguments{
 \item{ontology}{\code{ontology_index} object}
@@ -35,7 +34,7 @@ onto_plot(ontology, term_sets = NULL, frequencies = NULL,
 
 \item{style}{Display style for nodes, defaults to \code{"filled"}.}
 
-\item{fixedsize}{Character indicating whether nodes should be fixed size, "true", or adjusted to fit around the contained text, "false".}
+\item{fixedsize}{Character indicating whether nodes should be fixed size, \code{"true"}, or adjusted to fit around the contained text, \code{"false"}.}
 
 \item{shape}{Character vector of shape names for nodes (or function to set them). Defaults to \code{"circle"}.}
 
@@ -45,7 +44,7 @@ onto_plot(ontology, term_sets = NULL, frequencies = NULL,
 \code{ontology_plot} object.
 }
 \description{
-Get ontology_plot object
+A convenience wrapper for the \code{\link{get_ontology_plot}} function, enabling functions to be passed to generate graphical parameters for \code{terms} automatically.
 }
 \examples{
 library(ontologyIndex)
@@ -64,6 +63,6 @@ onto_plot(
 )
 }
 \seealso{
-\code{\link{write_dot}}
+\code{\link{get_ontology_plot}}, \code{\link{write_dot}}
 }
 

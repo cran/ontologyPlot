@@ -1,9 +1,9 @@
 ## ----echo=FALSE----------------------------------------------------------
-knitr::opts_chunk$set(dev="svg")
+knitr::opts_chunk$set(dev="svg", fig.width=7, fig.height=5, dev="svg", fig.align="center")
 
 ## ------------------------------------------------------------------------
-suppressPackageStartupMessages(library(ontologyIndex))
-suppressPackageStartupMessages(library(ontologyPlot))
+library(ontologyIndex)
+library(ontologyPlot)
 data(hpo)
 
 ## ------------------------------------------------------------------------

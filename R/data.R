@@ -27,11 +27,8 @@ simple_cap <- function(x) {
 #' data(hpo)
 #' get_shortened_names(hpo, c("HP:0001873", "HP:0011877"))
 #' @export
-#' @import magrittr
-get_shortened_names <- function(ontology, terms) gsub(
+get_shortened_names <- function(ontology, terms) sapply(FUN=simple_cap, gsub(x=gsub(
 	"Impaired |(Abnormality of (the )?)|(Abnormal )", 
 	"", 
 	ontology$name[terms]
-) %>% 
-(function (x) gsub("^\\s+|\\s+$", "", x)) %>%
-sapply(simple_cap)
+), pattern="^\\s+|\\s+$", replacement=""))

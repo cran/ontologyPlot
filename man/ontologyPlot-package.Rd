@@ -25,4 +25,4 @@ Maintainer: Daniel Greene <dg333@cam.ac.uk>
 	`The Human Phenotype Ontology project: linking molecular biology and disease through phenotype data', Nucl. Acids Res. (1 January 2014) 42 (D1): D966-D974 doi:10.1093/nar/gkt1026
 	Westbury, S. K. et al. (2015). Human Phenotype Ontology annotation and cluster analysis to un- ravel genetic defects in 707 cases with unexplained bleeding and platelet disorders. Genome Medicine. 7 (2015)
 }
-\keyword{ HPO }
+\keyword{ ontology, HPO, MPO, GO }

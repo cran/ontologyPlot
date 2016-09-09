@@ -4,7 +4,8 @@
 \alias{colour_by_term_set}
 \title{Function to set colours of nodes in plot to distinguish terms belonging to different term sets}
 \usage{
-colour_by_term_set(ontology, terms, term_sets)
+colour_by_term_set(ontology, terms, term_sets, colour_generator = rainbow,
+  alpha = 0.5)
 }
 \arguments{
 \item{ontology}{\code{ontology_index} object}
@@ -12,6 +13,10 @@ colour_by_term_set(ontology, terms, term_sets)
 \item{terms}{Character vector of ontological terms}
 
 \item{term_sets}{List of character vectors of ontological term IDs}
+
+\item{colour_generator}{Function which returns a vector of colours, e.g. \code{rainbow} or \code{heat.colors}.}
+
+\item{alpha}{\code{alpha} parameter to pass to \code{colour_generator}.}
 }
 \value{
 Character vector of colours, named by term.

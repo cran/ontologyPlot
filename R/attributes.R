@@ -3,20 +3,22 @@
 #' @template ontology
 #' @template terms 
 #' @template term_sets
+#' @param colour_generator Function which returns a vector of colours, e.g. \code{rainbow} or \code{heat.colors}.
+#' @param alpha \code{alpha} parameter to pass to \code{colour_generator}.
 #' @return Character vector of colours, named by term.
 #' @seealso \code{\link{colour_by_frequency}}, \code{\link{colour_by_population_frequency}}
 #' @export
-#' @import ontologyIndex
+#' @importFrom ontologyIndex get_ancestors get_terms_by_set_matrix 
 #' @importFrom stats setNames
 #' @importFrom grDevices rainbow
-colour_by_term_set <- function(ontology, terms, term_sets) {
+colour_by_term_set <- function(ontology, terms, term_sets, colour_generator=rainbow, alpha=0.5) {
 	ancestors.by.patient <- lapply(term_sets, get_ancestors, ontology=ontology)
 
-	term.pat.mat <- data.frame(t(get_terms_by_set_matrix(ancestors.by.patient)))
+	term.pat.mat <- sapply(ancestors.by.patient, function(x) terms %in% x)
 
-	patient.combos <- unique(term.pat.mat)
+	patient.combos <- as.matrix(unique(as.data.frame(term.pat.mat)))
 
-	colours <- rainbow(nrow(patient.combos), alpha=0.5)
+	colours <- colour_generator(nrow(patient.combos), alpha=alpha)
 	
 	setNames(
 		colours[
@@ -34,7 +36,7 @@ colour_by_term_set <- function(ontology, terms, term_sets) {
 #' @return Character vector of colours, named by term.
 #' @seealso \code{\link{simple_labels}}, \code{\link{label_by_frequency}}, \code{\link{long_labels}}
 #' @export
-#' @import ontologyIndex
+#' @importFrom ontologyIndex get_ancestors
 #' @importFrom stats setNames
 label_by_term_set <- function(ontology, terms, term_sets) setNames(
 	paste(
@@ -70,7 +72,7 @@ label_by_term_set <- function(ontology, terms, term_sets) setNames(
 #' @return Character vector of labels, named by term.
 #' @seealso \code{\link{simple_labels}}, \code{\link{label_by_frequency}}, \code{\link{label_by_term_set}}
 #' @export
-#' @import ontologyIndex
+#' @importFrom ontologyIndex get_ancestors
 #' @importFrom stats setNames
 long_labels <- function(ontology, terms, term_sets, frequencies) {
 
@@ -86,7 +88,7 @@ long_labels <- function(ontology, terms, term_sets, frequencies) {
 		terms,
 		node.friendly,
 		paste(
-			round(100 * frequencies),	
+			round(100 * frequencies[terms]),	
 			"% frequency", 
 			sep=""
 		),
@@ -129,7 +131,7 @@ long_labels <- function(ontology, terms, term_sets, frequencies) {
 #' @return Character vector of colours, named by term
 #' @seealso \code{\link{colour_by_term_set}}, \code{\link{colour_by_population_frequency}}
 #' @export
-#' @import ontologyIndex
+#' @importFrom ontologyIndex get_ancestors
 #' @importFrom grDevices colorRampPalette
 colour_by_frequency <- function(
 	ontology, 
@@ -167,7 +169,6 @@ colour_by_frequency <- function(
 #' @return Character vector of colours, named by term
 #' @seealso \code{\link{colour_by_term_set}}, \code{\link{colour_by_frequency}}
 #' @export
-#' @import ontologyIndex
 #' @importFrom stats setNames
 colour_by_population_frequency <- function(
 	ontology, 
@@ -200,7 +201,6 @@ colour_by_population_frequency <- function(
 #' @return Character vector of sizes, named by term
 #' @seealso \code{\link{width_by_frequency}}
 #' @export
-#' @import ontologyIndex
 #' @importFrom stats setNames
 width_by_significance <- function(ontology, terms, term_sets, frequencies) setNames(
 	calibrate_sizes(
@@ -223,7 +223,7 @@ width_by_significance <- function(ontology, terms, term_sets, frequencies) setNa
 #' @return Character vector of sizes, named by term
 #' @seealso \code{\link{width_by_significance}}
 #' @export
-#' @import ontologyIndex
+#' @importFrom ontologyIndex get_ancestors
 #' @importFrom stats setNames
 width_by_frequency <- function(ontology, terms, term_sets) {
 	group.freq <- sapply(
@@ -264,7 +264,7 @@ width_by_frequency <- function(ontology, terms, term_sets) {
 #' @return Character vector of labels, named by term.
 #' @seealso \code{\link{simple_labels}}, \code{\link{long_labels}}
 #' @export
-#' @import ontologyIndex
+#' @importFrom ontologyIndex get_ancestors
 #' @importFrom stats setNames
 label_by_frequency <- function(ontology, terms, term_sets) {
 	node.friendly <- get_node_friendly_long_names(ontology, terms)
@@ -299,7 +299,6 @@ label_by_frequency <- function(ontology, terms, term_sets) {
 #' @return Character vector of labels, named by term.
 #' @seealso \code{\link{official_labels}}
 #' @export
-#' @import ontologyIndex
 #' @importFrom stats setNames
 simple_labels <- function(ontology, terms) setNames(
 	get_node_friendly_long_names(ontology, terms),
@@ -313,7 +312,6 @@ simple_labels <- function(ontology, terms) setNames(
 #' @return Character vector of labels, named by term.
 #' @seealso \code{\link{simple_labels}}
 #' @export
-#' @import ontologyIndex
 #' @importFrom stats setNames
 official_labels <- function(ontology, terms) setNames(
 	get_node_friendly_long_names(ontology, terms, official_names=TRUE),

@@ -2,7 +2,7 @@
 % Please edit documentation in R/graphs.R
 \name{write_dot}
 \alias{write_dot}
-\title{Function to write dot file}
+\title{Export \code{ontology_plot} object as dot file}
 \usage{
 write_dot(ontology_plot, file)
 }
@@ -15,9 +15,9 @@ write_dot(ontology_plot, file)
 Nothing, side effect - writes to file.
 }
 \description{
-Function to write dot file
+Export \code{ontology_plot} object as dot file
 }
 \seealso{
-\code{\link{onto_plot}}
+\code{\link{dot_string}}
 }
 

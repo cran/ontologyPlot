@@ -9,14 +9,14 @@ vignette: >
   %\usepackage[utf8]{inputenc}
 ---
 ```{r echo=FALSE}
-knitr::opts_chunk$set(dev="svg")
+knitr::opts_chunk$set(dev="svg", fig.width=7, fig.height=5, dev="svg", fig.align="center")
 ```
 
 `ontologyPlot` lets you to visualise sets of ontological terms as subgraphs of the full ontology. The function provided for doing this is `onto_plot`. Most of the functions in the package use an `ontology_index` object, as in the `ontologyIndex` package, so we start by loading the package, and an example ontology - the Human Phenotype Ontology (HPO). 
 
 ```{r}
-suppressPackageStartupMessages(library(ontologyIndex))
-suppressPackageStartupMessages(library(ontologyPlot))
+library(ontologyIndex)
+library(ontologyPlot)
 data(hpo)
 ```
 
