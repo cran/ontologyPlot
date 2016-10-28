@@ -12,7 +12,11 @@ vignette: >
 knitr::opts_chunk$set(dev="svg", fig.width=7, fig.height=5, dev="svg", fig.align="center")
 ```
 
-`ontologyPlot` lets you to visualise sets of ontological terms as subgraphs of the full ontology. The function provided for doing this is `onto_plot`. Most of the functions in the package use an `ontology_index` object, as in the `ontologyIndex` package, so we start by loading the package, and an example ontology - the Human Phenotype Ontology (HPO). 
+`ontologyPlot` is part of the 'ontologyX' family of packages (see the 'Introduction to ontologyX' vignette supplied with the `ontologyIndex` package). It enables visualisation of ontological terms and ontological annotation as subgraphs of the full ontology, rendered using the `Rgraphviz` package. The package makes use of `ontology_index` objects, provided by the `ontologyIndex` package. To make full use of the features in `ontologyPlot`, the user is encouraged to gain familiarity of the functions in `ontologyIndex` which enable various transformations of sets of ontological that are useful for selecting those to add to diagrams. 
+
+*Note: `Rgraphviz` must be obtained from the Bioconductor repository, http://bioconductor.org/packages/Rgraphviz/*.
+
+We start by loading both packages, and an example ontology - the Human Phenotype Ontology (HPO). 
 
 ```{r}
 library(ontologyIndex)
@@ -33,30 +37,47 @@ To include all ancestral terms, use the `get_ancestors` function:
 onto_plot(hpo, terms=get_ancestors(hpo, c("HP:0001873", "HP:0011877")))
 ```
 
-Terms which just link two terms together can be removed to save space, whilst retaining the structure of the relevant part of the ontology - to do this use `remove_links`:
+The function `remove_links` can be used to remove terms simply linking two terms together, thus the structure of the given part of the ontology can be retained whilst simplifying the figure:
 
 ```{r}
 onto_plot(hpo, terms=remove_links(hpo, get_ancestors(hpo, c("HP:0001873", "HP:0011877"))))
 ```
 
-Node attributes can be passed to `onto_plot`. Here we pass in a character vector of term IDs to be used as the labels and a character vector of colours generated with `rainbow`. Note that the length of each vector passed in as an attribute has the same length as `terms`. However, it is still valid to pass in a vector of length 1, for instance `color="blue"`, because in this case `onto_plot` recognises this as a request to set given attribute for all nodes to the passed value.
+## Graphical parameters
+
+Graphical attributes to assign to each node can be passed to `onto_plot`. The graphical attributes can be specified as:
+
+* a single value, thus setting the attribute to the given value for all nodes, 
+* a vector the same length as the `terms` argument, so the `i`th term gets the `i`th attribute value,
+* a function which returns the desired attribute value for each term. 
+
+Node attributes which affect the plot generated include those supported by the Rgraphviz package. Some of these include:
+
+* `fillcolor` - the colour to use for each node, 
+* `color` - the colour for the border of the node (defaults to `"transparent"`), 
+* `label` - a character vector of term IDs to be used as the labels,
+* `fontsize` - font size of `label` text printed in each term,
+* `width` - the relative width of the nodes.
+
+In this example, we pass the term IDs as the labels and a character vector of colours generated with `rainbow` to colour the nodes. 
 
 ```{r}
 terms <- remove_links(hpo, get_ancestors(hpo, c("HP:0001873", "HP:0011877")))
 onto_plot(hpo, terms=terms, label=terms, fillcolor=rainbow(length(terms)))
 ```
 
-Functions which automatically select graphical parameters depending on other arguments to `onto_plot` (i.e. `ontology`, `frequencies` and `term_sets` - see `?onto_plot` for further details) can also be passed to `onto_plot`. For instance, here the labels are set by passing the function `official_labels`, labelling the nodes by the official names of the corresponding terms.
+`ontologyPlot` contains several functions for setting the graphical parameters which can be passed to `onto_plot`. These include for example `label_by_frequency`, `official_labels` and `label_by_term_set` (see individual help files for more details).
 
-```{r}
-onto_plot(hpo, terms=terms, label=official_labels)
-```
+These functions must accept an `ontology` and `terms` argument. They can optionally accept:
 
-Any attributes can be passed to `onto_plot`. Those which are recognised by the package `Rgraphviz` will be used by `plot`. Some of the attributes include size (`width`), shape (`shape`), font sizes (`fontsize`) and border colour (`color`) (see `?onto_plot` for details).
+* `frequencies`: a numeric vector of population frequencies named by term, 
+* `term_sets`: a `list` of character vectors of terms [i.e. annotated objects] arguments.
+
+If any of the given functions require these additional arguments, they must be passed to `onto_plot`.
 
 ## Frequencies
 
-A `frequencies` argument giving a population frequency of (a subset of) terms in the ontology can be passed to the function `onto_plot`. If this argument is passed, functions which make use of it in determining graphical parameters can be passed in for those parameters, for instance `colour_by_population_frequency`.
+A `frequencies` argument giving a population frequency of terms can be passed to `onto_plot`. If this argument is passed, functions which make use of it in determining graphical parameters can be passed to `onto_plot`, for instance `colour_by_population_frequency`.
 
 ```{r}
 frequencies <- seq(from=0, to=1, by=1/length(terms))
@@ -66,7 +87,8 @@ onto_plot(hpo, terms=terms, frequencies=frequencies,
 ```
 
 ## Term sets
-Another argument which can be passed to `onto_plot` is `term_sets`, a list of sets of ontological terms (e.g. a set of HPO encoded phenotypes). If passed, the `terms` argument of `onto_plot` defaults to all the terms which help distinguish the cases (see `?remove_uninformative_terms` for more details).
+
+Another argument which can be passed to `onto_plot` is `term_sets`, a list of sets of ontological terms (e.g. a set of HPO encoded phenotypes). If `terms_sets` is given, the `terms` parameter of `onto_plot` defaults to the value of `remove_uninformative_terms(ontology, term_sets)`, which removes terms which are annotated to exactly the same objects as all of their children (with the effect of greatly simplifying the resulting diagram - see `?remove_uninformative_terms` for more details).
 
 ```{r}
 hpo_phenotypes <- list(

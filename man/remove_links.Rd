@@ -2,7 +2,7 @@
 % Please edit documentation in R/graphs.R
 \name{remove_links}
 \alias{remove_links}
-\title{Remove terms which just link two other terms}
+\title{Remove terms which just link two other terms together in a subontology}
 \usage{
 remove_links(ontology, terms, hard = FALSE)
 }
@@ -11,18 +11,18 @@ remove_links(ontology, terms, hard = FALSE)
 
 \item{terms}{Character vector of ontological terms}
 
-\item{hard}{Logical value indicating whether to remove alternative direct paths to leaf nodes.}
+\item{hard}{Logical value determining whether to multiple edges to leaf terms are kept - \code{`hard=FALSE`}, or removed - \code{`hard=TRUE`}.}
 }
 \value{
 Character vector.
 }
 \description{
-Remove terms which just link two other terms
+Remove terms which just link two other terms together in a subontology
 }
 \examples{
 library(ontologyIndex)
 data(hpo)
-remove_links(hpo, c("HP:0001873"))
+remove_links(hpo, c("HP:0001873","HP:0001872","HP:0011873","HP:0011877"))
 }
 \seealso{
 \code{\link{remove_uninformative_terms}}

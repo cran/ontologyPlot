@@ -8,7 +8,7 @@
 #' @return Character vector of colours, named by term.
 #' @seealso \code{\link{colour_by_frequency}}, \code{\link{colour_by_population_frequency}}
 #' @export
-#' @importFrom ontologyIndex get_ancestors get_terms_by_set_matrix 
+#' @importFrom ontologyIndex get_ancestors
 #' @importFrom stats setNames
 #' @importFrom grDevices rainbow
 colour_by_term_set <- function(ontology, terms, term_sets, colour_generator=rainbow, alpha=0.5) {

@@ -1,5 +1,7 @@
 #' Select \code{n} most prevalent terms in \code{term_sets}
 #'
+#' Selects \code{n} most prevalent terms in set of term sets/annotations including implicit terms. If more than one term are tied at the \code{n}th position, all terms are included in the result.
+#'
 #' @template ontology
 #' @template term_sets
 #' @param n Integer 
@@ -55,17 +57,17 @@ remove_terms_with_less_than_n_occurrences <- function(ontology, term_sets, n, te
 	))))
 )
 
-#' Remove terms which just link two other terms 
+#' Remove terms which just link two other terms together in a subontology
 #'
 #' @template ontology
 #' @template terms
-#' @param hard Logical value indicating whether to remove alternative direct paths to leaf nodes.
+#' @param hard Logical value determining whether to multiple edges to leaf terms are kept - \code{`hard=FALSE`}, or removed - \code{`hard=TRUE`}.
 #' @return Character vector.
 #' @seealso \code{\link{remove_uninformative_terms}}
 #' @examples
 #' library(ontologyIndex)
 #' data(hpo)
-#' remove_links(hpo, c("HP:0001873"))
+#' remove_links(hpo, c("HP:0001873","HP:0001872","HP:0011873","HP:0011877"))
 #' @export
 #' @importFrom stats setNames
 remove_links <- function(ontology, terms, hard=FALSE) {
@@ -137,24 +139,6 @@ calibrate_sizes <- function(x, high, low) "+"(
 		high-low
 	)
 )
-
-#' Remove terms not descending from phenotypic abnormality
-#'
-#' @template ontology
-#' @template terms
-#' @return Character vector.
-#' @seealso \code{\link{remove_terms_with_less_than_n_occurrences}}, \code{\link{n_most_frequent_terms}}
-#' @export
-only_phenotype_abnormalities <- function(ontology, terms) {
-	pa <- ontology$id[ontology$name == "Phenotypic abnormality"]
-	Filter(
-		x=terms,
-		f=function(x) "%in%"(
-			pa,
-			ontology$ancestors[[x]]
-		)
-	)
-}
 
 #' Get \code{ontology_plot} object
 #'
@@ -280,13 +264,13 @@ print.ontology_plot <- function(x, ...) {
 }
 
 agopen_ontology_plot <- function(x) {
-	hpo.graph <- new(
+	ont_graph <- new(
 		"graphAM", 
 		adjMat=x[["adjacency_matrix"]], 
 		edgemode="directed"
 	)
 
-	result <- agopen(graph=hpo.graph, nodeAttrs=x[["node_attributes"]], name="ontological_plot") 
+	result <- agopen(graph=ont_graph, nodeAttrs=x[["node_attributes"]], name="ontological_plot") 
 	if (length(result@AgEdge) > 0)
 		for (i in 1:length(result@AgEdge)) {
 			for (aai in 1:length(x[["edge_attributes"]])) slot(result@AgEdge[[i]], names(x[["edge_attributes"]])[aai]) <- x[["edge_attributes"]][[aai]]

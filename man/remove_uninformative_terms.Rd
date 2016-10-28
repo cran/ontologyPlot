@@ -2,7 +2,7 @@
 % Please edit documentation in R/sets.R
 \name{remove_uninformative_terms}
 \alias{remove_uninformative_terms}
-\title{Retain only the most specific terms which are present in each unique set of term sets}
+\title{Remove uninformative terms from union of all terms in set of annotations}
 \usage{
 remove_uninformative_terms(ontology, term_sets)
 }
@@ -15,11 +15,11 @@ remove_uninformative_terms(ontology, term_sets)
 Character vector of terms
 }
 \description{
-Useful in finding a relatively small set of terms which captures the structure and overlap of terms within a set of term sets.
+For a set of ontological annotation sets, remove terms annotated to the same objects as all their children. Useful for selecting terms for summarising a set of annotation sets, as it can lead to a significant reduction in the number of terms.
 }
 \examples{
 library(ontologyIndex)
 data(hpo)
-remove_uninformative_terms(hpo, list(Patient1=c("HP:0001873")))
+remove_uninformative_terms(hpo, list(Patient1=c("HP:0001873","HP:0000118")))
 }
 

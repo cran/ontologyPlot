@@ -43,9 +43,9 @@ remove_uninformative_once <- function(ontology, with.ancs, all.terms) {
 	})]
 }
 
-#' Retain only the most specific terms which are present in each unique set of term sets
-#'
-#' Useful in finding a relatively small set of terms which captures the structure and overlap of terms within a set of term sets.
+#' Remove uninformative terms from union of all terms in set of annotations
+#' 
+#' For a set of ontological annotation sets, remove terms annotated to the same objects as all their children. Useful for selecting terms for summarising a set of annotation sets, as it can lead to a significant reduction in the number of terms.
 #'
 #' @template ontology
 #' @template term_sets
@@ -53,7 +53,7 @@ remove_uninformative_once <- function(ontology, with.ancs, all.terms) {
 #' @examples
 #' library(ontologyIndex)
 #' data(hpo)
-#' remove_uninformative_terms(hpo, list(Patient1=c("HP:0001873")))
+#' remove_uninformative_terms(hpo, list(Patient1=c("HP:0001873","HP:0000118")))
 #' @export
 #' @importFrom ontologyIndex get_ancestors
 remove_uninformative_terms <- function(ontology, term_sets) {

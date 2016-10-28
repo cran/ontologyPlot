@@ -4,7 +4,7 @@
 	Functions for Visualising Sets of Ontological Terms
 }
 \description{
-Functions for visualising sets of ontological terms using the graphviz layout system.
+Functions for visualising sets of ontological terms using the `graphviz' layout system.
 }
 \details{
 \tabular{ll}{

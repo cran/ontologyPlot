@@ -20,9 +20,6 @@ terms <- remove_links(hpo, get_ancestors(hpo, c("HP:0001873", "HP:0011877")))
 onto_plot(hpo, terms=terms, label=terms, fillcolor=rainbow(length(terms)))
 
 ## ------------------------------------------------------------------------
-onto_plot(hpo, terms=terms, label=official_labels)
-
-## ------------------------------------------------------------------------
 frequencies <- seq(from=0, to=1, by=1/length(terms))
 names(frequencies) <- terms
 onto_plot(hpo, terms=terms, frequencies=frequencies, 

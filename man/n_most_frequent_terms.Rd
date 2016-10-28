@@ -20,7 +20,7 @@ n_most_frequent_terms(ontology, term_sets, n,
 Character vector of length at most \code{n}
 }
 \description{
-Select \code{n} most prevalent terms in \code{term_sets}
+Selects \code{n} most prevalent terms in set of term sets/annotations including implicit terms. If more than one term are tied at the \code{n}th position, all terms are included in the result.
 }
 \examples{
 library(ontologyIndex)
