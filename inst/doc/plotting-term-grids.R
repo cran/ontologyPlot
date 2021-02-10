@@ -1,7 +1,4 @@
-## ----echo=FALSE----------------------------------------------------------
-knitr::opts_chunk$set(dev="svg", fig.width=7, fig.height=5, dev="svg", fig.align="center")
-
-## ----fig.width=6.15, fig.height=5.67-------------------------------------
+## ----fig.width=6.15, fig.height=5.67------------------------------------------
 library(ontologyIndex)
 library(ontologyPlot)
 data(go)

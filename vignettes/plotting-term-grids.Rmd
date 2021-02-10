@@ -8,10 +8,6 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\usepackage[utf8]{inputenc}
 ---
-```{r echo=FALSE}
-knitr::opts_chunk$set(dev="svg", fig.width=7, fig.height=5, dev="svg", fig.align="center")
-```
-
 In addition to using acyclic graphs, `ontologyPlot` lets you to visualise ontological annotation as grids. In order to do this for a given a `list` of term sets (i.e. your annotation), one calls the function `plot_annotation_grid`, passing parameters:
 
 * `ontology`, i.e. an `ontology_index`, 

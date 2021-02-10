@@ -8,13 +8,9 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\usepackage[utf8]{inputenc}
 ---
-```{r echo=FALSE}
-knitr::opts_chunk$set(dev="svg", fig.width=7, fig.height=5, dev="svg", fig.align="center")
-```
-
 `ontologyPlot` is part of the 'ontologyX' family of packages (see the 'Introduction to ontologyX' vignette supplied with the `ontologyIndex` package). It enables visualisation of ontological terms and ontological annotation as subgraphs of the full ontology, rendered using the `Rgraphviz` package. The package makes use of `ontology_index` objects, provided by the `ontologyIndex` package. To make full use of the features in `ontologyPlot`, the user is encouraged to gain familiarity of the functions in `ontologyIndex` which enable various transformations of sets of ontological that are useful for selecting those to add to diagrams. 
 
-*Note: `Rgraphviz` must be obtained from the Bioconductor repository, http://bioconductor.org/packages/Rgraphviz/*.
+*Note: `Rgraphviz` must be obtained from the Bioconductor repository*.
 
 We start by loading both packages, and an example ontology - the Human Phenotype Ontology (HPO). 
 
