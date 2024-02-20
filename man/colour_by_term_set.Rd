@@ -4,8 +4,13 @@
 \alias{colour_by_term_set}
 \title{Function to set colours of nodes in plot to distinguish terms belonging to different term sets}
 \usage{
-colour_by_term_set(ontology, terms, term_sets, colour_generator = rainbow,
-  alpha = 0.5)
+colour_by_term_set(
+  ontology,
+  terms,
+  term_sets,
+  colour_generator = rainbow,
+  alpha = 0.5
+)
 }
 \arguments{
 \item{ontology}{\code{ontology_index} object}
@@ -27,4 +32,3 @@ Function to set colours of nodes in plot to distinguish terms belonging to diffe
 \seealso{
 \code{\link{colour_by_frequency}}, \code{\link{colour_by_population_frequency}}
 }
-

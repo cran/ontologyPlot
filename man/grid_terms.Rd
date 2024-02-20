@@ -17,4 +17,3 @@ Character vector of terme IDs.
 \description{
 Get set of HPO terms appropriate for showing in a grid
 }
-

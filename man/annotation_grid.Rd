@@ -4,9 +4,14 @@
 \alias{annotation_grid}
 \title{Get logical matrix of term annotation for group of cases}
 \usage{
-annotation_grid(ontology, term_sets, all_terms = grid_terms(ontology,
-  term_sets), remove_unanimous = FALSE, cluster_rows = TRUE,
-  cluster_cols = TRUE)
+annotation_grid(
+  ontology,
+  term_sets,
+  all_terms = grid_terms(ontology, term_sets),
+  remove_unanimous = FALSE,
+  cluster_rows = TRUE,
+  cluster_cols = TRUE
+)
 }
 \arguments{
 \item{ontology}{\code{ontology_index} object}
@@ -27,4 +32,3 @@ Logical matrix.
 \description{
 Get logical matrix of term annotation for group of cases
 }
-

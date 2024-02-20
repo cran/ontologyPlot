@@ -122,4 +122,4 @@ onto_plot(
 
 ## Plots for publications
 
-To get the highest quality plots and fine-grained control over the node and edge attributes, the best option is to create the `ontological_plot` with `onto_plot` and write it to a file in `dot` format using the `write_dot` function. The file can then be opened using a layout program, for example the graphviz program (http://www.graphviz.org/), to visualise/export as an image. Individual node and edge attributes can then be modified by editing the file.
+To get the highest quality plots and fine-grained control over the node and edge attributes, the best option is to create the `ontological_plot` with `onto_plot` and write it to a file in `dot` format using the `write_dot` function. The file can then be opened using a layout program, for example the graphviz program (https://www.graphviz.org/), to visualise/export as an image. Individual node and edge attributes can then be modified by editing the file.

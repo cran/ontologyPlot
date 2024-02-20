@@ -25,4 +25,3 @@ get_pseudo_adjacency_matrix(hpo, c("HP:0000118", "HP:0001873", "HP:0011877"))
 \seealso{
 \code{\link{get_adjacency_matrix}}
 }
-

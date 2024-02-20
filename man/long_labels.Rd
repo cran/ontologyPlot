@@ -24,4 +24,3 @@ Label includes term ID, term name, number of instances of term amongst \code{ter
 \seealso{
 \code{\link{simple_labels}}, \code{\link{label_by_frequency}}, \code{\link{label_by_term_set}}
 }
-

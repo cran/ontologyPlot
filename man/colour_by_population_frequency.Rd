@@ -4,9 +4,14 @@
 \alias{colour_by_population_frequency}
 \title{Function to assign colours to terms based on population frequency of terms}
 \usage{
-colour_by_population_frequency(ontology, terms, frequencies,
+colour_by_population_frequency(
+  ontology,
+  terms,
+  frequencies,
   colour_palette = colorRampPalette(c("Yellow", "Green", "#0099FF"))(10),
-  max_colour_freq = max(terms_freq), min_colour_freq = min(terms_freq))
+  max_colour_freq = max(terms_freq),
+  min_colour_freq = min(terms_freq)
+)
 }
 \arguments{
 \item{ontology}{\code{ontology_index} object}
@@ -30,4 +35,3 @@ Function to assign colours to terms based on population frequency of terms
 \seealso{
 \code{\link{colour_by_term_set}}, \code{\link{colour_by_frequency}}
 }
-

@@ -4,8 +4,12 @@
 \alias{colour_by_frequency}
 \title{Function to assign colours to terms based on frequency with which terms appear in \code{term_sets}}
 \usage{
-colour_by_frequency(ontology, terms, term_sets,
-  colour_func = colorRampPalette(c("Yellow", "Green", "#0099FF")))
+colour_by_frequency(
+  ontology,
+  terms,
+  term_sets,
+  colour_func = colorRampPalette(c("Yellow", "Green", "#0099FF"))
+)
 }
 \arguments{
 \item{ontology}{\code{ontology_index} object}
@@ -25,4 +29,3 @@ Function to assign colours to terms based on frequency with which terms appear i
 \seealso{
 \code{\link{colour_by_term_set}}, \code{\link{colour_by_population_frequency}}
 }
-

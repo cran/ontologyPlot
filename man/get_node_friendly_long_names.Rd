@@ -24,4 +24,3 @@ library(ontologyIndex)
 data(hpo)
 get_node_friendly_long_names(hpo, c("HP:0001873", "HP:0011877"))
 }
-

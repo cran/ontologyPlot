@@ -18,4 +18,3 @@ Note that by setting \code{"id"} and \code{"class"} attributes it enables nodes 
 \seealso{
 \code{\link{onto_plot}}, \code{\link{get_ontology_plot}}
 }
-

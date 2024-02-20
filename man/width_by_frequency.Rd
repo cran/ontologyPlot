@@ -22,4 +22,3 @@ Function to get node sizes for terms based on frequency in \code{term_sets}
 \seealso{
 \code{\link{width_by_significance}}
 }
-

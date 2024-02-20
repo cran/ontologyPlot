@@ -4,8 +4,12 @@
 \alias{n_most_frequent_terms}
 \title{Select \code{n} most prevalent terms in \code{term_sets}}
 \usage{
-n_most_frequent_terms(ontology, term_sets, n,
-  terms = unique(unlist(term_sets)))
+n_most_frequent_terms(
+  ontology,
+  term_sets,
+  n,
+  terms = unique(unlist(term_sets))
+)
 }
 \arguments{
 \item{ontology}{\code{ontology_index} object}
@@ -31,4 +35,3 @@ list(term_sets=list("HP:0001873", "HP:0001902")), n=2)
 \seealso{
 \code{\link{remove_terms_with_less_than_n_occurrences}}
 }
-

@@ -22,4 +22,3 @@ library(ontologyIndex)
 data(hpo)
 get_shortened_names(hpo, c("HP:0001873", "HP:0011877"))
 }
-

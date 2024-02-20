@@ -22,4 +22,3 @@ Get p-values for observing at least as many of each term as occur in \code{term_
 \seealso{
 \code{\link{width_by_significance}}
 }
-

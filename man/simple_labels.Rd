@@ -20,4 +20,3 @@ Get simplified labels for terms
 \seealso{
 \code{\link{official_labels}}
 }
-

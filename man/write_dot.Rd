@@ -20,4 +20,3 @@ Export \code{ontology_plot} object as dot file
 \seealso{
 \code{\link{dot_string}}
 }
-

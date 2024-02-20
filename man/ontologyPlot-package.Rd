@@ -1,20 +1,12 @@
 \name{ontologyPlot}
+\alias{ontologyPlot}
+\alias{ontologyPlot-package}
 \docType{package}
 \title{
 	Functions for Visualising Sets of Ontological Terms
 }
 \description{
 Functions for visualising sets of ontological terms using the `graphviz' layout system.
-}
-\details{
-\tabular{ll}{
-Package: \tab ontologyPlot\cr
-Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2016-01-11\cr
-License: \tab GPL (>= 2)\cr
-}
-This package succeeds the package \code{hpoPlot} with an improved interface and focusing on general ontologies. The key function is \code{\link{onto_plot}}, which creates an object of class \code{ontology_plot} which can be displayed as a graph or exported to \code{dot} format.
 }
 \author{
 Daniel Greene <dg333@cam.ac.uk>

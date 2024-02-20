@@ -22,4 +22,3 @@ Function to get plot labels for terms based on frequency in \code{term_sets}
 \seealso{
 \code{\link{simple_labels}}, \code{\link{long_labels}}
 }
-

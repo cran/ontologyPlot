@@ -22,4 +22,3 @@ library(ontologyIndex)
 data(hpo)
 remove_uninformative_terms(hpo, list(Patient1=c("HP:0001873","HP:0000118")))
 }
-

@@ -20,4 +20,3 @@ Get official names for terms
 \seealso{
 \code{\link{simple_labels}}
 }
-

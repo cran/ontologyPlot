@@ -27,4 +27,3 @@ remove_links(hpo, c("HP:0001873","HP:0001872","HP:0011873","HP:0011877"))
 \seealso{
 \code{\link{remove_uninformative_terms}}
 }
-

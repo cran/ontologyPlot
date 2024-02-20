@@ -22,4 +22,3 @@ Function to label nodes by \code{term_set}
 \seealso{
 \code{\link{simple_labels}}, \code{\link{label_by_frequency}}, \code{\link{long_labels}}
 }
-

@@ -17,4 +17,3 @@ Nothing, side-effect: plots a graph.
 \description{
 Plotting function for \code{ontology_plot} object
 }
-

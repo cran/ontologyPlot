@@ -4,8 +4,12 @@
 \alias{get_ontology_plot}
 \title{Get \code{ontology_plot} object}
 \usage{
-get_ontology_plot(ontology, terms, edge_attributes = list(color = "#000000",
-  lty = "solid"), ...)
+get_ontology_plot(
+  ontology,
+  terms,
+  edge_attributes = list(color = "#000000", lty = "solid"),
+  ...
+)
 }
 \arguments{
 \item{ontology}{\code{ontology_index} object}
@@ -22,4 +26,3 @@ get_ontology_plot(ontology, terms, edge_attributes = list(color = "#000000",
 \description{
 Function to create \code{ontology_plot} objects where all graphical parameters to be used must be specified.
 }
-

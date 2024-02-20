@@ -14,7 +14,7 @@ In addition to using acyclic graphs, `ontologyPlot` lets you to visualise ontolo
 * `term_sets`, the annotation list,
 * `all_terms`, a character vector of term IDs indicating which terms to include in the plot. This defaults to those terms which show only the most informative common ancestors for all subsets of annotated objects (otherwise there can be an ungainly number of columns).
 
-We proceed by loading the package, and an example ontology - in our case, the Gene Ontology (GO).  We then create a `list` containing our annotation - here we use a list of 6 genes with the actual annotation downloaded from http://geneontology.org/ - and subsequently pass it to `plotannotation_grid`. 
+We proceed by loading the package, and an example ontology - in our case, the Gene Ontology (GO).  We then create a `list` containing our annotation - here we use a list of 6 genes with the actual annotation downloaded from https://geneontology.org/ - and subsequently pass it to `plotannotation_grid`. 
 
 ```{r fig.width=6.15, fig.height=5.67}
 library(ontologyIndex)

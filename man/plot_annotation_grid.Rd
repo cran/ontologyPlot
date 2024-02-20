@@ -19,4 +19,3 @@ Plots heatmap.
 \description{
 Plot a logical matrix of term annotation
 }
-

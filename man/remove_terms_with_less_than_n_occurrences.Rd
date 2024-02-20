@@ -4,8 +4,12 @@
 \alias{remove_terms_with_less_than_n_occurrences}
 \title{Remove terms with less than certain number of occurrences}
 \usage{
-remove_terms_with_less_than_n_occurrences(ontology, term_sets, n,
-  terms = unique(unlist(term_sets)))
+remove_terms_with_less_than_n_occurrences(
+  ontology,
+  term_sets,
+  n,
+  terms = unique(unlist(term_sets))
+)
 }
 \arguments{
 \item{ontology}{\code{ontology_index} object}
@@ -31,4 +35,3 @@ term_sets=list("HP:0001873", "HP:0001902"), n=2)
 \seealso{
 \code{\link{n_most_frequent_terms}}
 }
-

@@ -18,4 +18,3 @@ Capitalise words in character vector
 \examples{
 simple_cap(c("a simple test", "Another-test"))
 }
-

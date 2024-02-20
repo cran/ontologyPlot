@@ -22,4 +22,3 @@ Could be useful to modify a vector of sizes to between, say 1 and 3, before pass
 \examples{
 calibrate_sizes(c("HP:0000001"=10, "HP:0000006"=5), high=3, low=1)
 }
-

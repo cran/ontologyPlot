@@ -24,4 +24,3 @@ Function to get node sizes for terms based on statistical significance of seeing
 \seealso{
 \code{\link{width_by_frequency}}
 }
-

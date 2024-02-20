@@ -4,12 +4,22 @@
 \alias{onto_plot}
 \title{Get \code{ontology_plot} object}
 \usage{
-onto_plot(ontology, term_sets = NULL, frequencies = NULL,
+onto_plot(
+  ontology,
+  term_sets = NULL,
+  frequencies = NULL,
   terms = remove_uninformative_terms(ontology, term_sets),
   edge_attributes = list(color = "#000000", lty = "solid"),
-  fillcolor = "powderblue", label = simple_labels, color = "transparent",
-  width = 0.75, fontsize = 30, style = "filled", fixedsize = "true",
-  shape = "circle", ...)
+  fillcolor = "powderblue",
+  label = simple_labels,
+  color = "transparent",
+  width = 0.75,
+  fontsize = 30,
+  style = "filled",
+  fixedsize = "true",
+  shape = "circle",
+  ...
+)
 }
 \arguments{
 \item{ontology}{\code{ontology_index} object}
@@ -65,4 +75,3 @@ onto_plot(
 \seealso{
 \code{\link{get_ontology_plot}}, \code{\link{write_dot}}
 }
-
